@@ -1,0 +1,89 @@
+/* Ensure product images have stable dimensions and prevent flickering */
+.product-card img.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  image-rendering: auto;
+  transition: none !important;
+  animation: none !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Hover effect: scale up the product card */
+.product-card {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Show product description below price in black */
+.product-card .card-body p.product-description {
+  color: black !important;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+/* Estilo para o campo de telefone editável */
+#phoneInput {
+  display: inline-block;
+  max-width: 1000px;
+  font-size: 1.1rem;
+}
+
+/* Estilo para checkboxes nos cartões de produto */
+.product-checkbox {
+  cursor: pointer;
+}
+
+/* Estilo para área de drag-and-drop */
+#drop-area.dragover {
+  background-color: #e9ecef;
+  border-color: #007bff;
+}
+
+/* Estilo para navbar com fundo mais escuro */
+.bg-dark-custom {
+  background-color: #343a40 !important; /* Cinza escuro */
+}
+
+/* Ajuste para links da navbar em fundo escuro */
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #ffffff;
+}
+
+.navbar-dark .navbar-brand {
+  color: #ffffff;
+}
+
+.navbar-dark .navbar-brand:hover {
+  color: #ffffff;
+}
+
+/* Ajuste para o ícone do toggler em fundo escuro */
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Set background color to black */
+body {
+  background-color: rgb(167, 167, 167);
+}
