@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Elétrica DF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-3" href="#">Eletrica DF</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="d-flex mx-auto" style="max-width: 600px; width: 100%;">
+                    <input class="form-control me-2" type="search" placeholder="Buscar produtos, marcas e muito mais" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </form>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#materiais">Materiais</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cotacao">Cotação</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item" id="loginNavItem">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    </li>
+                    <li class="nav-item d-none" id="editNavItem">
+                        <a class="nav-link btn btn-warning text-dark fw-bold ms-2" href="#" id="editButton">Editar Site</a>
+                    </li>
+                    <li class="nav-item d-none" id="addProductNavItem">
+                        <a class="nav-link btn btn-success text-white fw-bold ms-2" href="#" id="addProductButton">Adicionar Produto</a>
+                    </li>
+                    <li class="nav-item d-none" id="deleteProductNavItem">
+                        <a class="nav-link btn btn-danger text-white fw-bold ms-2" href="#" id="deleteProductButton">Excluir Produtos Selecionados</a>
+                    </li>
+                    <li class="nav-item ms-3" id="contactPhoneNavItem">
+                        <a class="nav-link fw-bold text-primary" href="tel:+5511974468526" style="font-size: 1.1rem;" id="contactPhoneLink">
+                            📞 <span id="phoneDisplay">11 97446-8526</span>
+                        </a>
+                        <input type="text" id="phoneInput" class="form-control d-none" value="11 97446-8526" style="max-width: 200px;" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section id="banner" class="mb-5">
+        <div id="carouselBanner" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.postimg.cc/28mrdPpJ/Chat-GPT-Image-15-de-abr-de-2025-15-17-10.png" class="d-block w-100" alt="Eletrica DF Banner 1" style="height: 300px;width: 100; object-fit: contain ;">
+
+                    <div class="carousel-caption d-none d-md-block text-dark bg-light bg-opacity-75 rounded p-3">
+                        <br><h5>Eletrica DF - Materiais Elétricos de Qualidade</h5>
+                        <p>Encontre tudo para sua instalação elétrica com os melhores preços.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://clmaterialeletrico.com.br/uploads/fios-e-cabos.jpg" class="d-block w-100" alt="Eletrica DF Banner 2" style="height: 300px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block text-dark bg-light bg-opacity-75 rounded p-3">
+                        <h5>Promoções Especiais</h5>
+                        <p>Aproveite descontos exclusivos em materiais elétricos.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </section>
+
+    <main class="container my-5">
+        <!-- Materiais Section -->
+        <section id="materiais" class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="text-center mb-0 flex-grow-1">Nossos Materiais</h2>
+                <div id="materialButtons" class="d-none">
+                    <button class="btn btn-success me-2" id="addMaterialBtn">Adicionar Produto</button>
+                    <button class="btn btn-danger" id="deleteSelectedBtn">Excluir Selecionados</button>
+                </div>
+            </div>
+            <p class="text-center">Confira os materiais disponíveis para sua cotação:</p>
+            <div class="row justify-content-center g-4">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 product-card" tabindex="0" role="button"
+                        data-name="Fio 2,5mm²"
+                        data-color="Vermelho"
+                        data-description="Fio elétrico de cobre com isolamento para uso residencial. Ideal para instalações elétricas internas, garantindo segurança e eficiência na condução de energia."
+                        data-quantity="100 metros">
+                        <img src="https://eletrorastro.fbitsstatic.net/img/p/fio-rigido-2-50mm-750v-vermelho-rolo-com-25-metros-corfio-93837/284525.jpg?w=800&h=800&v=no-change&qs=ignore" class="card-img-top" alt="Fio 2,5mm²" style="height: 250px; object-fit: contain;" />
+                        <div class="card-body">
+                            <input type="checkbox" class="form-check-input product-checkbox d-none" style="position: absolute; top: 10px; right: 10px;" />
+                            <h5 class="card-title">Fio 2,5mm²</h5>
+                            <p class="card-text text-success fw-bold">R$ 12,50</p>
+                            <p class="card-text text-warning product-description">Fio elétrico de cobre com isolamento para uso residencial. Ideal para instalações elétricas internas, garantindo segurança e eficiência na condução de energia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 product-card" tabindex="0" role="button"
+                        data-name="Tomada 10A"
+                        data-color="Branco"
+                        data-description="Tomada padrão 10A para uso residencial. Compatível com a maioria dos aparelhos domésticos, oferece segurança e facilidade na instalação."
+                        data-quantity="50 unidades">
+                        <img src="https://lojaacal.vteximg.com.br/arquivos/ids/166082-1000-1000/modulo-de-tomada-energia-10a-branco-pial-plus-pial-legrand-632492.jpg?v=637389009152400000" class="card-img-top" alt="Tomada 10A" style="height: 250px; object-fit: contain;" />
+                        <div class="card-body">
+                            <input type="checkbox" class="form-check-input product-checkbox d-none" style="position: absolute; top: 10px; right: 10px;" />
+                            <h5 class="card-title">Tomada 10A</h5>
+                            <p class="card-text text-success fw-bold">R$ 8,90</p>
+                            <p class="card-text text-warning product-description">Tomada padrão 10A para uso residencial. Compatível com a maioria dos aparelhos domésticos, oferece segurança e facilidade na instalação.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 product-card" tabindex="0" role="button"
+                        data-name="Disjuntor 20A"
+                        data-color="Preto"
+                        data-description="Disjuntor para proteção de circuitos elétricos de até 20 amperes. Protege instalações contra sobrecargas e curtos-circuitos, garantindo a segurança do sistema elétrico."
+                        data-quantity="30 unidades">
+                        <img src="https://eletrorastro.fbitsstatic.net/img/p/disjuntor-nema-monopolar-20a-soprano-81625/268728.jpg?w=800&h=800&v=no-change&qs=ignore" class="card-img-top" alt="Disjuntor 20A" style="height: 250px; object-fit: contain;" />
+                        <div class="card-body">
+                            <input type="checkbox" class="form-check-input product-checkbox d-none" style="position: absolute; top: 10px; right: 10px;" />
+                            <h5 class="card-title">Disjuntor 20A</h5>
+                            <p class="card-text text-success fw-bold">R$ 15,00</p>
+                            <p class="card-text text-warning product-description">Disjuntor para proteção de circuitos elétricos de até 20 amperes. Protege instalações contra sobrecargas e curtos-circuitos, garantindo a segurança do sistema elétrico.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 product-card" tabindex="0" role="button"
+                        data-name="Lâmpada LED 9W"
+                        data-color="Branco Frio"
+                        data-description="Lâmpada LED de 9 watts com alta eficiência energética. Proporciona iluminação econômica e duradoura, ideal para ambientes residenciais e comerciais."
+                        data-quantity="200 unidades">
+                        <img src="https://cdn.leroymerlin.com.br/products/lampada_led_bulbo_9w_3000k__branco_quente__1567038480_d64d_600x600.jpeg" class="card-img-top" alt="Lâmpada LED 9W" style="height: 250px; object-fit: contain;" />
+                        <div class="card-body">
+                            <input type="checkbox" class="form-check-input product-checkbox d-none" style="position: absolute; top: 10px; right: 10px;" />
+                            <h5 class="card-title">Lâmpada LED 9W</h5>
+                            <p class="card-text text-success fw-bold">R$ 10,00</p>
+                            <p class="card-text text-warning product-description">Lâmpada LED de 9 watts com alta eficiência energética. Proporciona iluminação econômica e duradoura, ideal para ambientes residenciais e comerciais.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 product-card" tabindex="0" role="button"
+                        data-name="Conduíte 20mm"
+                        data-color="Cinza"
+                        data-description="Conduíte rígido para proteção de cabos elétricos. Utilizado para organizar e proteger fiações, aumentando a durabilidade e segurança das instalações."
+                        data-quantity="150 metros">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Conduite_20mm.jpg/640px-Conduite_20mm.jpg" class="card-img-top" alt="Conduíte 20mm" style="height: 250px; object-fit: contain;" />
+                        <div class="card-body">
+                            <input type="checkbox" class="form-check-input product-checkbox d-none" style="position: absolute; top: 10px; right: 10px;" />
+                            <h5 class="card-title">Conduíte 20mm</h5>
+                            <p class="card-text text-success fw-bold">R$ 20,00</p>
+                            <p class="card-text text-warning product-description">Conduíte rígido para proteção de cabos elétricos. Utilizado para organizar e proteger fiações, aumentando a durabilidade e segurança das instalações.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Modal -->
+        <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="productDetailModalLabel">Detalhes do Produto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Nome:</strong> <span id="modal-product-name"></span></p>
+                        <p><strong>Cor:</strong> <span id="modal-product-color"></span></p>
+                        <p><strong>Descrição:</strong> <span id="modal-product-description"></span></p>
+                        <p><strong>Quantidade:</strong> <span id="modal-product-quantity"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cotação Form Section -->
+        <section id="cotacao">
+            <h2 class="text-center mb-4">Envie Sua Cotação</h2>
+            <form id="form-cotacao" class="mx-auto" style="max-width: 600px;">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Seu E-mail</label>
+                    <input type="email" class="form-control" id="email" required autocomplete="email" />
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Seu Telefone</label>
+                    <input type="tel" class="form-control" id="telefone" pattern="[0-9]{10,11}" placeholder="Ex.: 11987654321" required autocomplete="tel" />
+                </div>
+                <div class="mb-3">
+                    <label for="arquivo" class="form-label">Anexe sua Cotação</label>
+                    <div id="drop-area" class="border rounded p-4 text-center">
+                        <label for="arquivo" class="d-block mb-0">
+                            Arraste seu arquivo aqui ou clique para selecionar<br />(PDF, Word, TXT, Excel)
+                        </label>
+                        <input type="file" id="arquivo" accept=".pdf,.doc,.docx,.txt,.xls,.xlsx" class="d-none" />
+                    </div>
+                    <p id="nome-arquivo" class="mt-2 text-muted"></p>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Confirmar Envio</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal fade" id="confirmacaoModal" tabindex="-1" aria-labelledby="confirmacaoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmacaoModalLabel">Confirmar Envio</h5>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você está enviando a cotação com os seguintes dados:</p>
+                    <p><strong>E-mail:</strong> <span id="confirm-email"></span></p>
+                    <p><strong>Telefone:</strong> <span id="confirm-telefone"></span></p>
+                    <p><strong>Arquivo:</strong> <span id="confirm-arquivo"></span></p>
+                    <p>Sua cotação será enviada diretamente para nosso e-mail.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="enviar-cotacao">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="loginForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuário</label>
+                            <input type="text" class="form-control" id="username" required autocomplete="username" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="password" required autocomplete="current-password" />
+                        </div>
+                        <div id="loginError" class="text-danger d-none">Usuário ou senha incorretos.</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para adicionar produto -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="addProductForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProductModalLabel">Adicionar Produto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Nome do Produto</label>
+                            <input type="text" class="form-control" id="productName" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Preço (R$)</label>
+                            <input type="number" step="0.01" class="form-control" id="productPrice" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productColor" class="form-label">Cor</label>
+                            <input type="text" class="form-control" id="productColor" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="productQuantity" class="form-label">Quantidade</label>
+                            <input type="text" class="form-control" id="productQuantity" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="productImageUrl" class="form-label">URL da Imagem</label>
+                            <input type="url" class="form-control" id="productImageUrl" placeholder="Insira a URL da imagem" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
